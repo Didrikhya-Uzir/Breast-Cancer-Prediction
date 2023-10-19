@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Classification using Deep Learning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Breast Cancer Classification using Neural Network</h2>
+        <!-- <p><a href="https://www.kaggle.com/c/fake-news/data?select=test.csv" target="_blank">Click here</a> for test data set (0->Malignant | 1->Benign)</p> -->
+        <form id="breastCancerForm" action="{{ url_for('predict')}}"method="post">
+            <label for="mean_radius">Mean Radius</label>
+            <input type="text" id="mean_radius" name="mean_radius" required>
+
+            <label for="mean_texture">Mean Texture</label>
+            <input type="text" id="mean_texture" name="mean_texture" required>
+
+            <label for="mean_perimeter">Mean Perimeter</label>
+            <input type="text" id="mean_perimeter" name="mean_perimeter" required>
+
+            <label for="mean_area">Mean Area</label>
+            <input type="text" id="mean_area" name="mean_area" required>
+
+            <label for="mean_smoothness">Mean Smoothness</label>
+            <input type="text" id="mean_smoothness" name="mean_smoothness" required>
+
+            <label for="mean_compactness">Mean Compactness</label>
+            <input type="text" id="mean_compactness" name="mean_compactness" required>
+
+            <label for="mean_concavity">Mean Concavity</label>
+            <input type="text" id="mean_concavity" name="mean_concavity" required>
+
+            <label for="mean_concave_points">Mean Concave Points</label>
+            <input type="text" id="mean_concave_points" name="mean_concave_points" required>
+
+            <label for="mean_symmetry">Mean Symmetry</label>
+            <input type="text" id="mean_symmetry" name="mean_symmetry" required>
+
+            <label for="mean_fractal_dimension">Mean Fractal Dimension</label>
+            <input type="text" id="mean_fractal_dimension" name="mean_fractal_dimension" required>
+
+            <label for="radius_error">Radius Error</label>
+            <input type="text" id="radius_error" name="radius_error" required>
+
+            <label for="texture_error">Texture Error</label>
+            <input type="text" id="texture_error" name="texture_error" required>
+
+            <label for="perimeter_error">Perimeter Error</label>
+            <input type="text" id="perimeter_error" name="perimeter_error" required>
+
+            <label for="area_error">Area Error</label>
+            <input type="text" id="area_error" name="area_error" required>
+
+
+            <button type="submit">Submit</button>
+        </form>
+
+	<br>
+   	<br>
+   	{{ prediction_text }}
+    </div>
+
+</body>
+</html>
